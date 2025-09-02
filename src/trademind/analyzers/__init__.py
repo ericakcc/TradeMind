@@ -1,0 +1,3 @@
+"""
+TradeMind analyzers module
+"""

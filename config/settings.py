@@ -22,6 +22,12 @@ class Config:
     BSCSCAN_API_URL = "https://api.bscscan.com/api"
     ETHERSCAN_API_URL = "https://api.etherscan.io/api"
     
+    # External Data APIs
+    COINGECKO_API_URL = "https://api.coingecko.com/api/v3"
+    COINMARKETCAP_API_URL = "https://pro-api.coinmarketcap.com/v1"
+    DEFILLAMA_API_URL = "https://api.llama.fi"
+    DEXTOOLS_API_URL = "https://www.dextools.io/shared/data"
+    
     # Telegram Configuration
     TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
     TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
@@ -33,6 +39,21 @@ class Config:
     WHALE_THRESHOLD_USD = int(os.getenv('WHALE_THRESHOLD_USD', 100000))
     CHECK_INTERVAL_SECONDS = int(os.getenv('CHECK_INTERVAL_SECONDS', 60))
     MAX_API_CALLS_PER_SECOND = int(os.getenv('MAX_API_CALLS_PER_SECOND', 4))
+    
+    # Gem Discovery Settings
+    GEM_MIN_MARKET_CAP = int(os.getenv('GEM_MIN_MARKET_CAP', 1_000_000))        # $1M
+    GEM_MAX_MARKET_CAP = int(os.getenv('GEM_MAX_MARKET_CAP', 100_000_000))      # $100M
+    GEM_MIN_VOLUME_24H = int(os.getenv('GEM_MIN_VOLUME_24H', 100_000))          # $100K
+    GEM_MIN_HOLDERS = int(os.getenv('GEM_MIN_HOLDERS', 1000))                   # 1000 holders
+    GEM_MAX_AGE_DAYS = int(os.getenv('GEM_MAX_AGE_DAYS', 90))                   # 90 days
+    GEM_MIN_AGE_DAYS = int(os.getenv('GEM_MIN_AGE_DAYS', 7))                    # 7 days
+    
+    # Scoring Weights
+    SOCIAL_SCORE_WEIGHT = float(os.getenv('SOCIAL_SCORE_WEIGHT', 0.3))          # 30%
+    ONCHAIN_SCORE_WEIGHT = float(os.getenv('ONCHAIN_SCORE_WEIGHT', 0.25))       # 25%
+    DEV_SCORE_WEIGHT = float(os.getenv('DEV_SCORE_WEIGHT', 0.2))                # 20%
+    LIQUIDITY_SCORE_WEIGHT = float(os.getenv('LIQUIDITY_SCORE_WEIGHT', 0.15))   # 15%
+    HOLDER_SCORE_WEIGHT = float(os.getenv('HOLDER_SCORE_WEIGHT', 0.1))          # 10%
     
     # Logging
     LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
